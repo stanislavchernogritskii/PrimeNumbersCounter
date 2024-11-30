@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AWSProjectType>Lambda</AWSProjectType>
+    <OutputType>Library</OutputType>
+    <RootNamespace>CSharp</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Amazon.Lambda.Core" Version="2.5.0" />
+    <PackageReference Include="AWSSDK.Lambda" Version="3.7.408.5" />
+    <PackageReference Include="AWSSDK.SimpleSystemsManagement" Version="3.7.402.32" />
+  </ItemGroup>
+</Project>

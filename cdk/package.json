@@ -5,10 +5,10 @@
     "prime_numbers_counter": "bin/prime_numbers_counter.js"
   },
   "scripts": {
-    "build": "tsc",
-    "watch": "tsc -w",
-    "test": "jest",
-    "cdk": "cdk"
+    "build": "node_modules/.bin/tsc",
+    "watch": "node_modules/.bin/tsc -w",
+    "test": "node_modules/.bin/jest",
+    "cdk": "node_modules/.bin/cdk"
   },
   "devDependencies": {
     "@types/jest": "^29.5.14",
