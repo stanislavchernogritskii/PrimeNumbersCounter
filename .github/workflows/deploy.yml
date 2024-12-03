@@ -28,12 +28,14 @@ jobs:
           aws-region: eu-west-1
 
       - name: Install dependencies
-        run: npm install
+        run: |
+          cd cdk
+          npm install
 
-      - name: CDK Synthesize
-        run: cdk synth
-
-      - name: CDK Deploy
+      - name: CDK Synthesize and Deploy
         env:
           CI: true
-        run: cdk deploy --require-approval never
+        run: |
+          cd cdk
+          cdk synth
+          cdk deploy --require-approval never
