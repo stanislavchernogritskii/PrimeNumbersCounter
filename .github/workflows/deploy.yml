@@ -17,12 +17,31 @@ jobs:
         with:
           node-version: '20'
 
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '8.0'
+
       - name: Install dependencies
         run: |
           cd cdk
           npm install
           npm uninstall path
           npm install --save-dev @types/node @types/jest
+
+      - name: Build Python package
+        run: |
+          cd Python
+          zip -r package.zip .
+        working-directory: Python
+
+      - name: Build C# x86 package
+        run: dotnet lambda package --framework net8.0 --configuration Release --function-architecture x86_64 --output-package ./package_x86.zip
+        working-directory: CSharp
+
+      - name: Build C# ARM package
+        run: dotnet lambda package --framework net8.0 --configuration Release --function-architecture arm64 --output-package ./package_arm.zip
+        working-directory: CSharp
 
       - name: Install AWS CDK
         run: npm install -g aws-cdk
