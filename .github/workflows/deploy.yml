@@ -33,7 +33,6 @@ jobs:
         run: |
           cd Python
           zip -r package.zip .
-        working-directory: Python
 
       - name: Build C# x86 package
         run: dotnet lambda package --framework net8.0 --configuration Release --function-architecture x86_64 --output-package ./package_x86.zip
