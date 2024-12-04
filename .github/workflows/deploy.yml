@@ -31,6 +31,7 @@ jobs:
         run: |
           cd cdk
           npm install
+          npm install --save-dev @types/node
 
       - name: CDK Synthesize and Deploy
         env:
