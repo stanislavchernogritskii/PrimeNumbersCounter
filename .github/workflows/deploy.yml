@@ -21,8 +21,8 @@ jobs:
         run: |
           cd cdk
           npm install
-          npm uninstall @types/node
-          npm install --save-dev @types/node
+          npm uninstall path
+          npm install --save-dev @types/node @types/jest
 
       - name: Check Node.js types
         run: ls -la node_modules/@types/node
