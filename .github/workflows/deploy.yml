@@ -40,6 +40,10 @@ jobs:
           cd cdk
           ls -la
 
+      - name: Check installed types
+        run: ls -la node_modules/@types
+        working-directory: cdk
+
       - name: CDK Synthesize and Deploy
         env:
           CI: true
