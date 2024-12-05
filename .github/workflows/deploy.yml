@@ -38,6 +38,7 @@ jobs:
           npm install
           npm uninstall path
           npm install --save-dev @types/node @types/jest
+          npm install -g aws-cdk
 
       - name: Build Python package
         run: |
@@ -51,13 +52,6 @@ jobs:
       - name: Build C# ARM package
         run: dotnet lambda package --framework net8.0 --configuration Release --function-architecture arm64 --output-package ./package_arm.zip
         working-directory: CSharp
-
-      - name: Install AWS CDK
-        run: npm install -g aws-cdk
-
-      - name: Check Node.js types
-        run: ls -la node_modules/@types/node
-        working-directory: cdk
 
       - name: Compile TypeScript
         run: npx tsc --noEmit
