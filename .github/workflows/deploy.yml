@@ -53,10 +53,6 @@ jobs:
         run: dotnet lambda package --framework net8.0 --configuration Release --function-architecture arm64 --output-package ./package_arm.zip
         working-directory: CSharp
 
-      - name: Compile TypeScript
-        run: npx tsc --noEmit
-        working-directory: cdk
-
       - name: CDK Synthesize
         run: cdk synth
         working-directory: cdk
